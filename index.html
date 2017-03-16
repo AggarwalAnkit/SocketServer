@@ -18,7 +18,8 @@
     $(function () {
       var socket = io();
       socket.on('data', function(msg) {
-        $('#messages').append($('<li>').text(msg));
+        var logMessage = $.parseJSON(msg);
+        $('#messages').append($('<li>').text(logMessage.message));
       });
     });
   </script>
